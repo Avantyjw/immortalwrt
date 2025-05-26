@@ -1,0 +1,23 @@
+diff --git a/package/base-files/files/bin/config_generate b/package/base-files/files/bin/config_generate
+index 6589897478..313f5cbf41 100755
+--- a/package/base-files/files/bin/config_generate
++++ b/package/base-files/files/bin/config_generate
+@@ -162,7 +162,7 @@ generate_network() {
+ 		static)
+ 			local ipad
+ 			case "$1" in
+-				lan) ipad=${ipaddr:-"192.168.1.1"} ;;
++				lan) ipad=${ipaddr:-"192.168.10.1"} ;;
+ 				*) ipad=${ipaddr:-"192.168.$((addr_offset++)).1"} ;;
+ 			esac
+ 
+@@ -312,7 +312,8 @@ generate_static_system() {
+ 		delete system.@system[0]
+ 		add system system
+ 		set system.@system[-1].hostname='ImmortalWrt'
+-		set system.@system[-1].timezone='UTC'
++		set system.@system[-1].timezone='CST-8'
++		set system.@system[-1].zonename='Asia/Shanghai'
+ 		set system.@system[-1].ttylogin='0'
+ 		set system.@system[-1].log_size='64'
+ 		set system.@system[-1].urandom_seed='0'
